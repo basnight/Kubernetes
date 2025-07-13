@@ -3,13 +3,13 @@
 As DevSecOps engineers, one of the primary resposibilities is to maintain security of your Kubernetes clusters and the containers.
 Here are some of the mandatory things to consider.
 
-1. [Secure your API server]
-2. [RBAC]
-3. [Network Policies]
-4. [Encrypt data at rest]
-5. [Secure Container Images]
-6. [Cluster Monitoring]
-7. [Upgrades]
+1. Secure your API server
+2. RBAC
+3. Network Policies
+4. Encrypt data at rest
+5. Secure Container Images
+6. Cluster Monitoring
+7. Upgrades
 
 ## Secure your API server
 The Kubernetes API server is a critical component of the cluster and should be secured with strong authentication and authorization mechanisms. 
@@ -131,10 +131,10 @@ To encrypt data at rest in Kubernetes, you can use the Kubernetes Encryption Pro
 
 Here are the general steps to enable Encryption Provider and encrypt data at rest in Kubernetes:
 
-- [Enable the Encryption Provider feature by configuring the Kubernetes API server]
-- [Configure the key management system to store and manage encryption keys]
-- [Create a Kubernetes Secret object with the encryption key]
-- [Configure Kubernetes resources to use the Encryption Provider]
+- Enable the Encryption Provider feature by configuring the Kubernetes API server
+- Configure the key management system to store and manage encryption keys
+- Create a Kubernetes Secret object with the encryption key
+- Configure Kubernetes resources to use the Encryption Provider
 
 Let's dive into these steps in more detail:
 
