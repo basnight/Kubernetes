@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+configMapGenerator:
+- name: orders-env
+  namespace: orders
+  env: config.properties
+vars:
+- name: ORDERS_SG_ID
+  objref:
+    kind: ConfigMap
+    name: orders-env
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.ORDERS_SG_ID
+resources:
+- policy.yaml
+configurations:
+- configuration.yaml
+patches:
+- deployment-patch.yaml
