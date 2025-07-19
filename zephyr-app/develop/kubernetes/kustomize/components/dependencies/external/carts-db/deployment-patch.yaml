@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carts
+  namespace: carts
+spec:
+  template:
+    spec:
+      containers:
+      - name: carts
+        env:
+        - name: CARTS_DYNAMODB_TABLENAME
+          valueFrom:
+            configMapKeyRef:
+              name: carts-db
+              key: table
