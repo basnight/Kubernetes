@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carts
+  namespace: carts
+spec:
+  template:
+    spec:
+      containers:
+      - name: carts
+        env:
+        - name: CARTS_DYNAMODB_ENDPOINT
+          value: http://carts-dynamodb:8000
+        - name: CARTS_DYNAMODB_CREATETABLE
+          value: "true"
+        - name: AWS_ACCESS_KEY_ID
+          value: dummy
+        - name: AWS_SECRET_ACCESS_KEY
+          value: dummy
+        - name: CARTS_DYNAMODB_TABLENAME
+          value: Items
