@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  ui:
+    ports:
+    - 8080
+    environment:
+      - JAVA_OPTS=-XX:MaxRAMPercentage=75.0 -Djava.security.egd=file:/dev/urandom
+      - SERVER_TOMCAT_ACCESSLOG_ENABLED=true
+    hostname: ui
+    build:
+      context: .
+      dockerfile: ../../images/java17/Dockerfile
+      args:
+        JAR_PATH: target/ui-0.0.1-SNAPSHOT.jar
+    image: microservices-demo/ui
+    restart: always
+    mem_limit: 256m
+    cap_drop:
+      - ALL
