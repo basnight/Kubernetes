@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+configMapGenerator:
+- name: opentelemetry-collector-env
+  env: config.properties
+vars:
+- name: OPENTELEMETRY_IAM_ROLE_ARN
+  objref:
+    kind: ConfigMap
+    name: opentelemetry-collector-env
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.OPENTELEMETRY_IAM_ROLE_ARN
+configurations:
+- configuration.yaml
+resources:
+- namespace.yaml
+- clusterrole.yaml
+- clusterrolebinding.yaml
+- serviceaccount.yaml
+- collector.yaml
+- instrumentation.yaml
+patches:
+- path: deployment-patch.yaml
+  target:
+    kind: Deployment
+    labelSelector: app.kubernetes.io/type=app
