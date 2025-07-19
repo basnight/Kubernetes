@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+configMapGenerator:
+- name: checkout-env
+  namespace: checkout
+  env: config.properties
+vars:
+- name: CHECKOUT_SG_ID
+  objref:
+    kind: ConfigMap
+    name: checkout-env
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.CHECKOUT_SG_ID
+resources:
+- policy.yaml
+configurations:
+- configuration.yaml
+patches:
+- deployment-patch.yaml
