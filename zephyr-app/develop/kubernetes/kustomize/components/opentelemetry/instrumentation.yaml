@@ -1,0 +1,16 @@
+apiVersion: opentelemetry.io/v1alpha1
+kind: Instrumentation
+metadata:
+  name: default-instrumentation
+  namespace: opentelemetry
+spec:
+  exporter:
+    endpoint: http://default-collector.opentelemetry.svc:4317
+  sampler:
+    type: always_on
+  propagators:
+    - tracecontext
+    - baggage
+  env:
+  - name: OTEL_JAVAAGENT_ENABLED
+    value: 'true'
