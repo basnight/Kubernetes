@@ -1,4 +1,4 @@
-# Kubernetes-Intro
+# Kubernetes Projects
 Creating this repo with an intent to develop in Kubernetes. This is a work-in-progress repo.
 
 ## Kubernetes Installation Using KOPS on EC2
